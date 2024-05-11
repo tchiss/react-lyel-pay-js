@@ -6,9 +6,9 @@ react-lyel-pay-js is a React library that allows you to integrate a Lyel Pay pay
 
 ## Installation
 
-### `npm install react-lyel-pay-js`
+`npm install react-lyel-pay-js`
 
-### `yarn add react-lyel-pay-js`
+`yarn add react-lyel-pay-js`
 
 ## Usage
 

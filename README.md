@@ -1,46 +1,43 @@
-# Getting Started with Create React App
+# Getting Started with Lyel Pay Library
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Introduction
 
-## Available Scripts
+react-lyel-pay-js is a React library that allows you to integrate a Lyel Pay payment form from Lyel Pay into your application.
 
-In the project directory, you can run:
+## Installation
 
-### `npm start`
+### `npm install react-lyel-pay-js`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### `yarn add react-lyel-pay-js`
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## Usage
 
-### `npm test`
+```tsx
+import React from 'react';
+import { LyelPayElements } from 'react-lyel-pay-js';
+import { loadLyelPay } from 'react-lyel-pay-js';
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+// loadLyelPay(apiKey, amount, clientSecret)
+// apiKey: Your Lyel Pay API key
+// amount: The amount to be paid
+// clientSecret: Your Lyel Pay client secret
+const LyelPayPromise = loadLyelPay('YOUR_API_KEY', 1000, 'YOUR_CLIENT_SECRET');
 
-### `npm run build`
+const App = () => {
+  return (
+    <div>
+      <LyelPayElements options={LyelPayPromise} />
+    </div>
+  );
+};
+```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### API
+react-lyel-pay-js provides the following API:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+* `loadLyelPay`: A function that takes three arguments: apiKey, amount, and clientSecret. It returns a promise that resolves to an object containing the apiKey, initializationDate, amount, and clientSecret.
+* `LyelPayElements`: The main component that renders the Lyel Pay payment form.
+* `apiKey`: The API key to use for the Lyel Pay payment form.
+* `amount`: The amount to be paid.
+* `clientSecret`: The client secret to use for the Lyel Pay payment form.
+* `onPaymentInitiate`: A callback function that is called when the payment is initiated.
